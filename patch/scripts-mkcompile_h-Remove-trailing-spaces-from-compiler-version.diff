@@ -1,0 +1,13 @@
+diff --git a/scripts/mkcompile_h b/scripts/mkcompile_h
+index 6fdc97ef6023..fd8fdb91581d 100755
+--- a/scripts/mkcompile_h
++++ b/scripts/mkcompile_h
+@@ -76,7 +76,7 @@ UTS_TRUNCATE="cut -b -$UTS_LEN"
+   echo \#define LINUX_COMPILE_BY \"`echo $LINUX_COMPILE_BY | $UTS_TRUNCATE`\"
+   echo \#define LINUX_COMPILE_HOST \"`echo $LINUX_COMPILE_HOST | $UTS_TRUNCATE`\"
+ 
+-  echo \#define LINUX_COMPILER \"`$CC -v 2>&1 | grep ' version '`\"
++  echo \#define LINUX_COMPILER \"`$CC -v 2>&1 | grep ' version ' | sed 's/[[:space:]]*$//'`\"
+ ) > .tmpcompile
+ 
+ # Only replace the real compile.h if the new one is different,
