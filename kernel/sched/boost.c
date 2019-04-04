@@ -10,6 +10,8 @@
  * GNU General Public License for more details.
  */
 
+#include <linux/dsboost.h>
+
 #include "sched.h"
 #include <linux/of.h>
 #include <linux/sched/core_ctl.h>
@@ -200,7 +202,10 @@ int sched_boost_handler(struct ctl_table *table, int write,
 		goto done;
 
 	if (verify_boost_params(old_val, *data)) {
-		_sched_set_boost(old_val, *data);
+		if (*data > 0)
+			do_sched_boost();
+		else
+			do_sched_boost_rem();
 	} else {
 		*data = old_val;
 		ret = -EINVAL;
