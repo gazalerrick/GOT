@@ -3434,7 +3434,7 @@ static irqreturn_t sdhci_irq(int irq, void *dev_id)
 			if ((host->quirks2 & SDHCI_QUIRK2_SLOW_INT_CLR) &&
 				(host->clock <= 400000))
 				udelay(40);
-			sdhci_cmd_irq(host, intmask & SDHCI_INT_CMD_MASK);
+			sdhci_cmd_irq(host, intmask & SDHCI_INT_CMD_MASK, &intmask);
 		}
 
 		if (intmask & SDHCI_INT_CMD_MASK)
