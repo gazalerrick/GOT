@@ -41,14 +41,11 @@ static int tcp_syn_retries_min = 1;
 static int tcp_syn_retries_max = MAX_TCP_SYNCNT;
 static int ip_ping_group_range_min[] = { 0, 0 };
 static int ip_ping_group_range_max[] = { GID_T_MAX, GID_T_MAX };
-<<<<<<< HEAD
 static int tcp_delack_seg_min = TCP_DELACK_MIN;
 static int tcp_delack_seg_max = 60;
 static int tcp_use_userconfig_min;
 static int tcp_use_userconfig_max = 1;
-=======
 static int one_day_secs = 24 * 3600;
->>>>>>> 840367cf12ec3... ipv4: set the tcp_min_rtt_wlen range from 0 to one day
 
 /* Update system visible IP port range */
 static void set_local_port_range(struct net *net, int range[2])
