@@ -31,7 +31,6 @@
 *.xz
 *.lz4
 *.lzo
-*.patch
 *.gcno
 *.ll
 modules.builtin
@@ -67,6 +66,7 @@ Module.symvers
 # git files that we don't want to ignore even if they are dot-files
 #
 !.gitignore
+!.gitattributes
 !.mailmap
 !.cocciconfig
 
@@ -120,4 +120,4 @@ all.config
 kernel/configs/android-*.cfg
 
 # output
-/out/
+**/out
